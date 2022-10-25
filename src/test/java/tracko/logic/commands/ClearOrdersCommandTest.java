@@ -10,22 +10,19 @@ import tracko.model.ModelManager;
 import tracko.model.UserPrefs;
 
 public class ClearOrdersCommandTest {
+    @Test
+    public void execute_emptyTrackO_success() {
+        Model model = new ModelManager();
+        Model expectedModel = new ModelManager();
+        assertCommandSuccess(new ClearOrdersCommand(), model, ClearOrdersCommand.MESSAGE_SUCCESS, expectedModel);
+    }
 
-     @Test
-     public void execute_emptyTrackO_success() {
-         Model model = new ModelManager();
-         Model expectedModel = new ModelManager();
+    @Test
+    public void execute_nonEmptyTrackO_success() {
+        Model model = new ModelManager(getTrackOWithTypicalOrders(), new UserPrefs());
+        Model expectedModel = new ModelManager(getTrackOWithTypicalOrders(), new UserPrefs());
+        expectedModel.clearOrdersList();
 
-         assertCommandSuccess(new ClearOrdersCommand(), model, ClearOrdersCommand.MESSAGE_SUCCESS, expectedModel);
-     }
-
-     @Test
-     public void execute_nonEmptyTrackO_success() {
-         Model model = new ModelManager(getTrackOWithTypicalOrders(), new UserPrefs());
-         Model expectedModel = new ModelManager(getTrackOWithTypicalOrders(), new UserPrefs());
-         expectedModel.clearOrdersList();
-
-         assertCommandSuccess(new ClearOrdersCommand(), model, ClearOrdersCommand.MESSAGE_SUCCESS, expectedModel);
-     }
-
+        assertCommandSuccess(new ClearOrdersCommand(), model, ClearOrdersCommand.MESSAGE_SUCCESS, expectedModel);
+    }
 }

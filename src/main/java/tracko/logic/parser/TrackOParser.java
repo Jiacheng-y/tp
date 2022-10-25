@@ -6,7 +6,8 @@ import static tracko.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import tracko.logic.commands.ClearCommand;
+import tracko.logic.commands.ClearItemsCommand;
+import tracko.logic.commands.ClearOrdersCommand;
 import tracko.logic.commands.Command;
 import tracko.logic.commands.ExitCommand;
 import tracko.logic.commands.HelpCommand;
@@ -118,8 +119,11 @@ public class TrackOParser {
         case EditItemCommand.COMMAND_WORD:
             return new EditItemCommandParser().parse(arguments);
 
-        case ClearCommand.COMMAND_WORD:
-            return new ClearCommand();
+        case ClearOrdersCommand.COMMAND_WORD:
+            return new ClearOrdersCommand();
+
+        case ClearItemsCommand.COMMAND_WORD:
+            return new ClearItemsCommand();
 
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();

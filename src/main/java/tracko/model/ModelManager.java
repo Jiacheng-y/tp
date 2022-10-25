@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static tracko.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
@@ -113,6 +114,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void clearOrdersList() {
+        trackO.setItems(new ArrayList<>());
+    }
+
+    @Override
     public void setOrder(Order orderToEdit, Order editedOrder) {
         requireAllNonNull(orderToEdit, editedOrder);
 
@@ -197,6 +203,11 @@ public class ModelManager implements Model {
     public void setItem(Item target, Item editedItem) {
         requireAllNonNull(target, editedItem);
         trackO.setItem(target, editedItem);
+    }
+
+    @Override
+    public void clearItemsList() {
+        trackO.setItems(new ArrayList<>());
     }
 
     // FILTERED ITEM LIST ACCESSORS ======================================================================

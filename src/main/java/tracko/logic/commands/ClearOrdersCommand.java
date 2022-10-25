@@ -3,21 +3,20 @@ package tracko.logic.commands;
 import static java.util.Objects.requireNonNull;
 
 import tracko.model.Model;
-import tracko.model.TrackO;
 
 /**
- * Clears trackO.
+ * Clears trackO Order list.
  */
-public class ClearCommand extends Command {
+public class ClearOrdersCommand extends Command {
 
-    public static final String COMMAND_WORD = "clear";
-    public static final String MESSAGE_SUCCESS = "TrackO has been cleared!";
+    public static final String COMMAND_WORD = "clearo";
+    public static final String MESSAGE_SUCCESS = "TrackO orders have been cleared!";
 
 
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
-        model.setTrackO(new TrackO());
+        model.clearOrdersList();
         return new CommandResult(MESSAGE_SUCCESS);
     }
 }

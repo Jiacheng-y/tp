@@ -73,14 +73,30 @@ public interface Model {
      */
     void deleteOrder(Order order);
 
+    /**
+     * Sets a given order to a different order.
+     * @param orderToEdit order to be changed
+     * @param editedOrder order to be changed to
+     */
     void setOrder(Order orderToEdit, Order editedOrder);
 
+    /**
+     * Marks a given order as paid and/or delivered.
+     * @param orderToMark order to be marked
+     * @param isPaid true to mark order as paid
+     * @param isDelivered true to mark order as delivered
+     */
     void markOrder(Order orderToMark, boolean isPaid, boolean isDelivered);
 
     /**
      * Returns the order list.
      */
     ObservableList<Order> getOrderList();
+
+    /**
+     * Clears all orders from the order list in trackO.
+     */
+    void clearOrdersList();
 
     /**
      * Returns an unmodifiable view of the filtered order list
@@ -121,6 +137,11 @@ public interface Model {
      * The item identity of {@code editedItem} must not be the same as another existing item in the inventory list.
      */
     void setItem(Item target, Item editedItem);
+
+    /**
+     * Clears all items from Inventory list in TrackO.
+     */
+    void clearItemsList();
 
     /**
      * Returns an unmodifiable view of the filtered item list.

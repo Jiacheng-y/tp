@@ -132,6 +132,11 @@ public class AddOrderCommandTest {
         }
 
         @Override
+        public void clearOrdersList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void addItem(Item item) {
             throw new AssertionError("This method should not be called.");
         }
@@ -158,6 +163,11 @@ public class AddOrderCommandTest {
 
         @Override
         public void setItem(Item target, Item editedItem) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void clearItemsList() {
             throw new AssertionError("This method should not be called.");
         }
 

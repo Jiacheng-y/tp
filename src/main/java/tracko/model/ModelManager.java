@@ -115,7 +115,7 @@ public class ModelManager implements Model {
 
     @Override
     public void clearOrdersList() {
-        trackO.setItems(new ArrayList<>());
+        trackO.setOrders(new ArrayList<>());
     }
 
     @Override

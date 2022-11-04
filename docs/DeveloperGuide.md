@@ -826,6 +826,11 @@ testers are expected to do more *exploratory* testing.
 
 1. Dealing with missing/corrupted data files
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+   1. If the data file is missing
+      1. Close the current jar file
+      2. Launch the jar file again by double-clicking the jar file in the folder
+   2. If the data file is corrupt
+      1. delete the `trackO.json` file from the same folder containing `tracko.jar` 
+      2. Launch the jar file again by double-clicking the jar file in the folder 
 
 1. _{ more test cases …​ }_
